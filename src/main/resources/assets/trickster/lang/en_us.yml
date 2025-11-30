@@ -419,6 +419,7 @@ block.trickster:
   scroll_shelf: Scroll Shelf
   charging_array: Charging Array
   inert_spawner: Inert Spawner
+  color_block: Infused Ceramic
 
 entity.trickster:
   levitating_block: Levitating Block
