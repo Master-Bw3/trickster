@@ -27,6 +27,7 @@ public interface FragmentRenderer<T extends Fragment> {
     ListRenderer LIST = register(FragmentType.LIST, new ListRenderer());
     MapRenderer MAP = register(FragmentType.MAP, new MapRenderer());
     ColorRenderer COLOR = register(FragmentType.COLOR, new ColorRenderer());
+    SpellPartRenderer SPELL_PART = register(FragmentType.SPELL_PART, new SpellPartRenderer());
 
     float TEXT_PROPORTIONAL_HEIGHT = 0.3f;
 
