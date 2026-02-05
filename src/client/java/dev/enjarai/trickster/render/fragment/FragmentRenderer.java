@@ -28,6 +28,8 @@ public interface FragmentRenderer<T extends Fragment> {
     MapRenderer MAP = register(FragmentType.MAP, new MapRenderer());
     ColorRenderer COLOR = register(FragmentType.COLOR, new ColorRenderer());
 
+    float TEXT_PROPORTIONAL_HEIGHT = 0.3f;
+
     static <T extends FragmentRenderer<F>, F extends Fragment> T register(FragmentType<F> type, T renderer) {
         return Registry.register(REGISTRY, FragmentType.REGISTRY.getId(type), renderer);
     }
@@ -61,11 +63,24 @@ public interface FragmentRenderer<T extends Fragment> {
 
     void render(T fragment, MatrixStack matrices, VertexConsumerProvider vertexConsumers, float x, float y, float radius, float alpha, Vec3d normal, float tickDelta, CircleRenderer delegator);
 
+    float get_proportional_height(T fragment);
+
     default boolean renderRedrawDots() {
         return true;
     }
 
     default boolean doubleSided() {
         return true;
+    }
+
+    static float get_fragment_proportional_height(Fragment fragment) {
+
+        FragmentRenderer renderer = FragmentRenderer.REGISTRY.get(FragmentType.REGISTRY.getId(fragment.type()));
+        if (renderer != null) {
+            return renderer.get_proportional_height(fragment);
+        } else {
+            return TEXT_PROPORTIONAL_HEIGHT;
+        }
+
     }
 }
