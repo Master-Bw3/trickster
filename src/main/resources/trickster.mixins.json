@@ -5,16 +5,12 @@
   "plugin": "dev.enjarai.trickster.ConditionalMixins",
   "mixins": [
     "AbstractFurnaceBlockEntityMixin",
-    "AllayEntityMixin",
     "AnvilScreenHandlerMixin",
-    "BeaconBlockEntityMixin",
-    "ArmorStandEntityMixin",
     "DataPackContentsMixin",
+    "BeaconBlockEntityMixin",
     "EntityMixin",
     "FallingBlockEntityMixin",
-    "FoxEntityMixin",
     "ItemEntityMixin",
-    "ItemFrameEntityMixin",
     "ItemMixin",
     "LivingEntityMixin",
     "accessor.CropBlockAccessor",
@@ -30,7 +26,12 @@
     "curse.LimbAnimatorMixin",
     "curse.LivingEntityMixin",
     "event.ServerPlayerEntityMixin",
-    "event.ServerPlayerInteractionManagerMixin"
+    "event.ServerPlayerInteractionManagerMixin",
+    "slot.AllayEntityMixin",
+    "slot.ArmorStandEntityMixin",
+    "slot.FoxEntityMixin",
+    "slot.ItemEntityMixin",
+    "slot.ItemFrameEntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1
