@@ -2,14 +2,10 @@ name: Publish Web Book
 on:
   push:
     branches:
-      - master
+      - mistress
 jobs:
   publish_web_book:
     runs-on: codeberg-small
-    permissions:
-      contents: write
-    concurrency:
-      group: ${{ github.workflow }}-${{ github.ref }}
     env:
       COLEUS_BOOK_GEN: 'true'
       COLEUS_BOOK_ID: 'trickster:tome_of_tomfoolery'
