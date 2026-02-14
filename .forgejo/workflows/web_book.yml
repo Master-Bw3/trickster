@@ -22,7 +22,7 @@ jobs:
           distribution: 'microsoft'
           java-version: '21'
       - name: Generate Book
-        uses: modmuss50/xvfb-action@v1
+        uses: https://github.com/modmuss50/xvfb-action@v1
         with:
           run: ./gradlew runClient --stacktrace
       # - name: Deploy
