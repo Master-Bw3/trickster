@@ -10,8 +10,8 @@
     ],
     "contact": {
         "homepage": "https://enjarai.dev/",
-        "sources": "https://github.com/enjarai/trickster",
-        "issues": "https://github.com/enjarai/trickster/issues"
+        "sources": "https://codeberg.org/trans-fish/trickster",
+        "issues": "https://codeberg.org/trans-fish/trickster/issues"
     },
     "license": "MIT",
     "icon": "assets/trickster/icon.png",
