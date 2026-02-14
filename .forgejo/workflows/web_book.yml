@@ -17,6 +17,8 @@ jobs:
         with:
           distribution: 'microsoft'
           java-version: '21'
+      - name: Fetch apt repos
+        run: sudo apt-get update
       - name: Generate Book
         uses: https://github.com/modmuss50/xvfb-action@v1
         with:
