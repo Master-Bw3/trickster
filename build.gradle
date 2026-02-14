@@ -53,7 +53,7 @@ loom {
     }
 
     runs {
-        client_mixin {
+        clientMixin {
             client()
             ideConfigGenerated true
             name = "Minecraft Client - (Mixin Swap)"

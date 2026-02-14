@@ -11,10 +11,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(TooltipComponent.class)
 public interface TooltipComponentMixin {
-
     @Inject(method = "of(Lnet/minecraft/item/tooltip/TooltipData;)Lnet/minecraft/client/gui/tooltip/TooltipComponent;", at = @At("HEAD"), cancellable = true)
     private static void trickster$getTooltipData(TooltipData data, CallbackInfoReturnable<TooltipComponent> cir) {
-            if (data instanceof SpellTooltipData spellData)
-                cir.setReturnValue(new SpellTooltipComponent(spellData.contents()));
+        if (data instanceof SpellTooltipData spellData)
+            cir.setReturnValue(new SpellTooltipComponent(spellData.contents()));
     }
 }
