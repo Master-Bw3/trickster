@@ -94,6 +94,7 @@ public class ModItems {
 
     // Advancement icon
     public static final Item NAN = register("nan", new Item(new Item.Settings()));
+    public static final Item NOTHING = register("nothing", new Item(new Item.Settings()));
 
     public static final TagKey<Item> CAN_EVALUATE_DYNAMICALLY = TagKey.of(RegistryKeys.ITEM, Trickster.id("can_evaluate_dynamically"));
     public static final TagKey<Item> HOLDABLE_HAT = TagKey.of(RegistryKeys.ITEM, Trickster.id("holdable_hat"));
@@ -147,8 +148,6 @@ public class ModItems {
                 entries.add(WAND);
                 entries.add(AMETHYST_WHORL);
                 entries.add(TORMENT_ON_A_CHAIN);
-                entries.add(COLLAR);
-                entries.add(LEASH);
                 entries.add(WARDING_CHARM);
                 entries.add(MACRO_RING);
                 entries.add(SPELL_INK);

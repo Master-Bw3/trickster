@@ -11,7 +11,7 @@
     },
     "frame": "goal",
     "announce_to_chat": true,
-    "hidden": false
+    "hidden": true
   },
   "parent": "trickster:inactive_spawner_spell_core",
   "criteria": {
