@@ -1,5 +1,6 @@
 package dev.enjarai.trickster.item;
 
+import dev.enjarai.trickster.advancement.criterion.ModCriteria;
 import dev.enjarai.trickster.cca.ModEntityComponents;
 import dev.enjarai.trickster.item.component.CollarLinkComponent;
 import dev.enjarai.trickster.item.component.ModComponents;
@@ -13,6 +14,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
@@ -78,6 +80,11 @@ public class LeashItem extends Item implements LeftClickItem {
             );
 
             user.sendMessage(Text.translatable("trickster.message.leash.success", entity.getName()), true);
+            ModCriteria.COLLAR_TAME.trigger((ServerPlayerEntity) user);
+            if (entity instanceof ServerPlayerEntity player) {
+                ModCriteria.COLLAR_TAME.trigger(player);
+
+            }
             return ActionResult.SUCCESS;
         }
 

@@ -101,6 +101,7 @@ public class ModModelGenerator extends FabricModelProvider {
 
         // For the NaN advancement
         itemModelGenerator.register(ModItems.NAN, Models.GENERATED);
+        itemModelGenerator.register(ModItems.NOTHING, Models.GENERATED);
 
         ModItems.DYED_VARIANTS.forEach(v -> {
             itemModelGenerator.register(v.variant(), Models.GENERATED);
