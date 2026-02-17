@@ -1,26 +1,26 @@
 {
   "display": {
     "icon": {
-      "id": "trickster:cracked_echo_knot"
+      "id": "trickster:cracked_emerald_knot"
     },
     "title": {
-      "text": "Broken and Alone"
+      "text": "Refractions of the Past"
     },
     "description": {
-      "text": "Find or create a Cracked Echo Knot"
+      "text": "Find a cracked Knot"
     },
     "frame": "task",
     "announce_to_chat": true,
     "hidden": true
   },
-  "parent": "trickster:find_cracked_knot",
+  "parent": "trickster:root",
   "criteria": {
     "pickup_echo_knot": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": "trickster:cracked_echo_knot"
+            "items": "#trickster:cracked_knots"
           }
         ]
       }
