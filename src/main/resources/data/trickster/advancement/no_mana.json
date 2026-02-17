@@ -13,7 +13,7 @@
     "announce_to_chat": true,
     "hidden": true
   },
-  "parent": "trickster:root",
+  "parent": "trickster:cast_spell",
   "criteria": {
     "mana_overflux": {
       "trigger": "trickster:mana_overflux"
