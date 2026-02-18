@@ -69,8 +69,11 @@ public class ModItems {
     public static final SpellCoreItem SPELL_CORE = register("spell_core", new SpellCoreItem());
     public static final RustedSpellCoreItem RUSTED_SPELL_CORE = register("rusted_spell_core", new RustedSpellCoreItem());
     public static final OminousSpellCoreItem OMINOUS_SPELL_CORE = register("ominous_spell_core", new OminousSpellCoreItem());
+
+    // TODO: change the names to not include spawner as it is a spoiler for how to obtain them. Only do this on a port or breaking update
     public static final InactiveSpawnerSpellCoreItem INACTIVE_SPAWNER_SPELL_CORE = register("inactive_spawner_spell_core", new InactiveSpawnerSpellCoreItem());
     public static final SpawnerSpellCoreItem SPAWNER_SPELL_CORE = register("spawner_spell_core", new SpawnerSpellCoreItem());
+
     public static final BlockItem SPELL_RESONATOR_ITEM = register("spell_resonator", new BlockItem(ModBlocks.SPELL_RESONATOR, new Item.Settings()));
     public static final BlockItem SPELL_CONSTRUCT_ITEM = register("spell_construct", new BlockItem(ModBlocks.SPELL_CONSTRUCT, new Item.Settings()));
     public static final BlockItem MODULAR_SPELL_CONSTRUCT_ITEM = register("modular_spell_construct", new BlockItem(ModBlocks.MODULAR_SPELL_CONSTRUCT, new Item.Settings()));

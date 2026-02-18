@@ -20,6 +20,7 @@ public class ModCriteria {
     public static final CrackKnotCriterion CRACK_KNOT = register("crack_knot", new CrackKnotCriterion());
     public static final DestroyKnotCriterion DESTROY_KNOT = register("destroy_knot", new DestroyKnotCriterion());
     public static final CollarTameCriterion COLLAR_TAME = register("collar_tame", new CollarTameCriterion());
+    public static final ActivateSpawnerCriterion ACTIVATE_SPAWNER = register("activate_spawner", new ActivateSpawnerCriterion());
 
     private static <T extends Criterion<?>> T register(String name, T criterion) {
         return Registry.register(Registries.CRITERION, Trickster.id(name), criterion);
