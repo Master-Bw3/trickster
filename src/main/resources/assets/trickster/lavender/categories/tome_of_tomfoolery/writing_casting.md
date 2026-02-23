@@ -7,4 +7,4 @@
 }
 ```
 
-TODO
+A mage's personal writing and casting implements.

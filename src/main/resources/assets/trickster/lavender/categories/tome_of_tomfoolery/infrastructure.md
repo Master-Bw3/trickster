@@ -7,4 +7,4 @@
 }
 ```
 
-TODO
+Items and blocks that provide means of automation or infrastructure, be that mana-related or otherwise.
