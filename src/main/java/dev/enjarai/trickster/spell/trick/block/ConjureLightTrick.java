@@ -22,7 +22,8 @@ import java.util.Optional;
 
 public class ConjureLightTrick extends Trick<ConjureLightTrick> {
     public ConjureLightTrick() {
-        super(Pattern.of(8, 4, 0, 1, 2, 0), Signature.of(FragmentType.VECTOR, FragmentType.COLOR.optionalOfArg(), FragmentType.NUMBER.optionalOfArg(), ConjureLightTrick::conjure, FragmentType.VECTOR));
+        super(Pattern.of(8, 4, 0, 1, 2, 0),
+                Signature.of(FragmentType.VECTOR, FragmentType.COLOR.optionalOfArg(), FragmentType.NUMBER.optionalOfArg(), ConjureLightTrick::conjure, FragmentType.VECTOR));
     }
 
     public VectorFragment conjure(SpellContext ctx, VectorFragment pos, Optional<ColorFragment> color, Optional<NumberFragment> levelOptional) {
