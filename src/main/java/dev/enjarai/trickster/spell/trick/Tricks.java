@@ -25,6 +25,7 @@ import dev.enjarai.trickster.spell.trick.map.*;
 import dev.enjarai.trickster.spell.trick.math.*;
 import dev.enjarai.trickster.spell.trick.misc.*;
 import dev.enjarai.trickster.spell.trick.particle.HighlightTrick;
+import dev.enjarai.trickster.spell.trick.particle.SpellParticleTrick;
 import dev.enjarai.trickster.spell.trick.projectile.SummonArrowTrick;
 import dev.enjarai.trickster.spell.trick.projectile.SummonDragonBreathTrick;
 import dev.enjarai.trickster.spell.trick.projectile.SummonFireballTrick;
@@ -152,6 +153,7 @@ public class Tricks {
 
     // Particles
     public static final HighlightTrick HIGHLIGHT = register("highlight", new HighlightTrick());
+    public static final SpellParticleTrick SPELL_PARTICLE = register("spell_particle", new SpellParticleTrick());
 
     // Math
     public static final AddTrick ADD = register("add", new AddTrick());
