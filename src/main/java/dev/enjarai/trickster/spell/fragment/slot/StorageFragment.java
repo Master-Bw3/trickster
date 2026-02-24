@@ -36,8 +36,12 @@ public interface StorageFragment extends VariantingFragment {
     }
 
     default void spawnMoveParticles(Trick<?> trick, SpellContext ctx, StorageFragment to) {
-        var fromPos = getSourceOrCasterPos(trick, ctx);
         var toPos = to.getSourceOrCasterPos(trick, ctx);
+        spawnMoveParticles(trick, ctx, toPos);
+    }
+
+    default void spawnMoveParticles(Trick<?> trick, SpellContext ctx, Vector3dc toPos) {
+        var fromPos = getSourceOrCasterPos(trick, ctx);
 
         var distance = fromPos.distance(toPos);
         if (distance < 1) {
@@ -54,9 +58,9 @@ public interface StorageFragment extends VariantingFragment {
         var world = ctx.source().getWorld();
         ModNetworking.CHANNEL.serverHandle(world
                 .getPlayers(p -> p.squaredDistanceTo(fromPos.x(), fromPos.y(), fromPos.z()) < 24 * 24))
-                .send(new StorageMoveParticlePacket(fromPos, fromTrailTarget, toPos));
+            .send(new StorageMoveParticlePacket(fromPos, fromTrailTarget, toPos));
         ModNetworking.CHANNEL.serverHandle(world
                 .getPlayers(p -> p.squaredDistanceTo(toPos.x(), toPos.y(), toPos.z()) < 24 * 24))
-                .send(new StorageMoveParticlePacket(toTrailSource, toPos, toPos));
+            .send(new StorageMoveParticlePacket(toTrailSource, toPos, toPos));
     }
 }

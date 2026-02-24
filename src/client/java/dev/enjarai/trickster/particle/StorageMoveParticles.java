@@ -9,23 +9,26 @@ public class StorageMoveParticles {
     public static final int PARTICLES_PER_BLOCK = 8;
     public static final float PARTICLE_SPACING = 1f / PARTICLES_PER_BLOCK;
 
-    @SuppressWarnings({"resource", "DataFlowIssue"})
+    @SuppressWarnings({ "resource", "DataFlowIssue" })
     public static void drawLine(StorageMoveParticlePacket packet, ClientAccess access) {
         var from = packet.from();
         var to = packet.to();
         var target = packet.target();
+
+        target = target.add(0, 1.5, 0, new Vector3d());
 
         var distance = from.distance(to);
         var direction = to.sub(from, new Vector3d()).normalize();
         var spacing = direction.mul(PARTICLE_SPACING, new Vector3d());
 
         for (int i = 0; i < distance * PARTICLES_PER_BLOCK; i++) {
-            var position = from.add(spacing, new Vector3d());
+            var position = from.add(spacing.mul(i, new Vector3d()), new Vector3d());
+            var offset = position.sub(target);
 
             access.runtime().world.addParticle(
-                ParticleTypes.ENCHANT,
-                target.x(), target.y(), target.z(),
-                position.x(), position.y(), position.z()
+                    ParticleTypes.ENCHANT, true,
+                    target.x(), target.y(), target.z(),
+                    offset.x(), offset.y(), offset.z()
             );
         }
     }

@@ -38,6 +38,13 @@ public class SwapSlotTrick extends Trick<SwapSlotTrick> {
             }
 
             trans.commit();
+
+            if (inserted1 > 0) {
+                slot1.spawnMoveParticles(this, ctx, slot2);
+            }
+            if (inserted2 > 0) {
+                slot2.spawnMoveParticles(this, ctx, slot1);
+            }
         }
 
         return VoidFragment.INSTANCE;

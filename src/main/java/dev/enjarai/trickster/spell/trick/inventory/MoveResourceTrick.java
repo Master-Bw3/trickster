@@ -54,6 +54,8 @@ public class MoveResourceTrick extends Trick<MoveResourceTrick> {
             ctx.useMana(this, destinationSlot.getMoveCost(this, ctx, sourceSlot.getSourceOrCasterPos(this, ctx), moved));
 
             trans.commit();
+            sourceSlot.spawnMoveParticles(this, ctx, destinationSlot);
+
             return new NumberFragment(moved);
         }
     }

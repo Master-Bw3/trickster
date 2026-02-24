@@ -50,6 +50,8 @@ public class DropStackFromSlotTrick extends Trick<DropStackFromSlotTrick> {
             trans.commit();
 
             world.spawnEntity(entity);
+            slot.spawnMoveParticles(this, ctx, vector);
+
             return new EntityFragment(entity.getUuid(), entity.getName());
         }
     }
