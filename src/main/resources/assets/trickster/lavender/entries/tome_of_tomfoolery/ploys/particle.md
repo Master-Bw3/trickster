@@ -4,7 +4,8 @@
   "icon": "minecraft:firework_rocket",
   "category": "trickster:ploys",
   "additional_search_terms": [
-    "Flourish Ploy"
+    "Flourish Ploy",
+    "Radiance Ploy"
   ]
 }
 ```
