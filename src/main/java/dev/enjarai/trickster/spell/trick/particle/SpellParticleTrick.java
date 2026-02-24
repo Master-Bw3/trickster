@@ -18,7 +18,8 @@ public class SpellParticleTrick extends Trick<SpellParticleTrick> {
     public SpellParticleTrick() {
         super(Pattern.of(0, 1, 2, 0, 4, 8, 5, 4, 3, 6, 7, 8),
                 Signature.of(FragmentType.VECTOR.variadicOfArg().require().unpack(), SpellParticleTrick::run, FragmentType.VECTOR));
-        overload(Signature.of(FragmentType.VECTOR.optionalOfArg(), FragmentType.COLOR.optionalOfArg(), FragmentType.VECTOR.variadicOfArg().require().unpack(), SpellParticleTrick::runColored, FragmentType.VECTOR));
+        overload(Signature.of(FragmentType.VECTOR.optionalOfArg(), FragmentType.COLOR.optionalOfArg(), FragmentType.VECTOR.variadicOfArg().require().unpack(),
+                SpellParticleTrick::runColored, FragmentType.VECTOR));
     }
 
     public VectorFragment run(SpellContext ctx, List<VectorFragment> positions) {

@@ -54,7 +54,7 @@ Given a dye item type, returns the color that the dye applies to leather armor.
 Given glass, returns a fully transparent color.
 
 
-Given a vector, gets the color that has been imbued into the block at that position.
+Given a vector, gets the color that has been imbued into the magical block at that position.
 
 ;;;;;
 
