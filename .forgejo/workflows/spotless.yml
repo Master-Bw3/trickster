@@ -5,7 +5,7 @@ on: [
 
 jobs:
   fix_formatting:
-    runs-on: codeberg-tiny
+    runs-on: gaming
     steps:
       - name: checkout repository
         uses: actions/checkout@v4
