@@ -14,8 +14,9 @@ public class StorageMoveParticles {
         var from = packet.from();
         var to = packet.to();
         var target = packet.target();
+        long amount = packet.amount();
 
-        target = target.add(0, 1.5, 0, new Vector3d());
+        target = target.add(0, 0.75, 0, new Vector3d());
 
         var distance = from.distance(to);
         var direction = to.sub(from, new Vector3d()).normalize();
@@ -25,11 +26,14 @@ public class StorageMoveParticles {
             var position = from.add(spacing.mul(i, new Vector3d()), new Vector3d());
             var offset = position.sub(target);
 
-            access.runtime().world.addParticle(
+            for (int j = 0; j < Math.max(1, Math.log(amount)); j++) {
+                var randomizedOffset = offset.add(Math.random() - 0.5d, Math.random() - 0.5d, Math.random() - 0.5d);
+                access.runtime().world.addParticle(
                     ParticleTypes.ENCHANT, true,
                     target.x(), target.y(), target.z(),
-                    offset.x(), offset.y(), offset.z()
-            );
+                    randomizedOffset.x(), randomizedOffset.y(), randomizedOffset.z()
+                );
+            }
         }
     }
 }

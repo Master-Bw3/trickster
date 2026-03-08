@@ -18,12 +18,12 @@ import java.util.Optional;
 public class MoveResourceTrick extends Trick<MoveResourceTrick> {
     public MoveResourceTrick() {
         super(Pattern.of(7, 4, 6, 7, 8, 4, 0, 2, 4), Signature.of(ArgType.simple(StorageFragment.class), ArgType.simple(StorageFragment.class), FragmentType.NUMBER.optionalOfArg(),
-                ArgType.simple(ResourceVariantFragment.class).variadicOfArg().unpack(), MoveResourceTrick::move, FragmentType.NUMBER));
+            ArgType.simple(ResourceVariantFragment.class).variadicOfArg().unpack(), MoveResourceTrick::move, FragmentType.NUMBER));
     }
 
     @SuppressWarnings({ "unchecked", "rawtypes" })
     public <T> NumberFragment move(SpellContext ctx, StorageFragment sourceSlot, StorageFragment destinationSlot, Optional<NumberFragment> amount, List<ResourceVariantFragment> resourceTypes)
-            throws BlunderException {
+        throws BlunderException {
         if (sourceSlot.equals(destinationSlot)) {
             return new NumberFragment(0);
         }
@@ -35,27 +35,27 @@ public class MoveResourceTrick extends Trick<MoveResourceTrick> {
 
         try (var trans = Transaction.openOuter()) {
             var moved = StorageUtil.move(
-                    sourceSlot.getStorage(this, ctx, variantType),
-                    destinationSlot.getStorage(this, ctx, variantType),
-                    v -> {
-                        if (allowedResources.isEmpty()) return true;
+                sourceSlot.getStorage(this, ctx, variantType),
+                destinationSlot.getStorage(this, ctx, variantType),
+                v -> {
+                    if (allowedResources.isEmpty()) return true;
 
-                        for (var resource : allowedResources) {
-                            if (resource.resourceMatches(this, ctx, v)) {
-                                return true;
-                            }
+                    for (var resource : allowedResources) {
+                        if (resource.resourceMatches(this, ctx, v)) {
+                            return true;
                         }
-                        return false;
-                    },
-                    amount.map(NumberFragment::asLong).orElse(Long.MAX_VALUE),
-                    trans
+                    }
+                    return false;
+                },
+                amount.map(NumberFragment::asLong).orElse(Long.MAX_VALUE),
+                trans
             );
 
             if (moved > 0) {
                 ctx.useMana(this, destinationSlot.getMoveCost(this, ctx, sourceSlot.getSourceOrCasterPos(this, ctx), moved));
 
                 trans.commit();
-                sourceSlot.spawnMoveParticles(this, ctx, destinationSlot);
+                sourceSlot.spawnMoveParticles(this, ctx, destinationSlot, moved);
             }
 
             return new NumberFragment(moved);

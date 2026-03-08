@@ -24,23 +24,23 @@ public interface StorageFragment extends VariantingFragment {
 
     default float getMoveCost(Trick<?> trickSource, SpellContext ctx, Vector3dc pos, long amount) throws BlunderException {
         return getSourcePos(trickSource, ctx)
-                .map(sourcePos -> {
-                    var a = variantType().costMultiplier * amount;
-                    return (float) (pos.distance(sourcePos) * a * 0.5);
-                })
-                .orElse(0f);
+            .map(sourcePos -> {
+                var a = variantType().costMultiplier * amount;
+                return (float) (pos.distance(sourcePos) * a * 0.5);
+            })
+            .orElse(0f);
     }
 
     default void incurCost(Trick<?> trick, SpellContext ctx, Vector3dc pos, long amountMoved) {
         ctx.useMana(trick, getMoveCost(trick, ctx, pos, amountMoved));
     }
 
-    default void spawnMoveParticles(Trick<?> trick, SpellContext ctx, StorageFragment to) {
+    default void spawnMoveParticles(Trick<?> trick, SpellContext ctx, StorageFragment to, long amountMoved) {
         var toPos = to.getSourceOrCasterPos(trick, ctx);
-        spawnMoveParticles(trick, ctx, toPos);
+        spawnMoveParticles(trick, ctx, toPos, amountMoved);
     }
 
-    default void spawnMoveParticles(Trick<?> trick, SpellContext ctx, Vector3dc toPos) {
+    default void spawnMoveParticles(Trick<?> trick, SpellContext ctx, Vector3dc toPos, long amountMoved) {
         var fromPos = getSourceOrCasterPos(trick, ctx);
 
         var distance = fromPos.distance(toPos);
@@ -57,10 +57,10 @@ public interface StorageFragment extends VariantingFragment {
 
         var world = ctx.source().getWorld();
         ModNetworking.CHANNEL.serverHandle(world
-                .getPlayers(p -> p.squaredDistanceTo(fromPos.x(), fromPos.y(), fromPos.z()) < 24 * 24))
-            .send(new StorageMoveParticlePacket(fromPos, fromTrailTarget, toPos));
+            .getPlayers(p -> p.squaredDistanceTo(fromPos.x(), fromPos.y(), fromPos.z()) < 24 * 24))
+            .send(new StorageMoveParticlePacket(fromPos, fromTrailTarget, toPos, amountMoved));
         ModNetworking.CHANNEL.serverHandle(world
-                .getPlayers(p -> p.squaredDistanceTo(toPos.x(), toPos.y(), toPos.z()) < 24 * 24))
-            .send(new StorageMoveParticlePacket(toTrailSource, toPos, toPos));
+            .getPlayers(p -> p.squaredDistanceTo(toPos.x(), toPos.y(), toPos.z()) < 24 * 24))
+            .send(new StorageMoveParticlePacket(toTrailSource, toPos, toPos, amountMoved));
     }
 }

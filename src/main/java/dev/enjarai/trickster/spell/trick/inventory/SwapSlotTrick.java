@@ -37,13 +37,20 @@ public class SwapSlotTrick extends Trick<SwapSlotTrick> {
                 throw new ItemInvalidBlunder(this);
             }
 
+            if (inserted1 > 0) {
+                slot1.incurCost(this, ctx, slot2.getSourceOrCasterPos(this, ctx), inserted1);
+            }
+            if (inserted2 > 0) {
+                slot2.incurCost(this, ctx, slot1.getSourceOrCasterPos(this, ctx), inserted2);
+            }
+
             trans.commit();
 
             if (inserted1 > 0) {
-                slot1.spawnMoveParticles(this, ctx, slot2);
+                slot1.spawnMoveParticles(this, ctx, slot2, inserted1);
             }
             if (inserted2 > 0) {
-                slot2.spawnMoveParticles(this, ctx, slot1);
+                slot2.spawnMoveParticles(this, ctx, slot1, inserted2);
             }
         }
 
