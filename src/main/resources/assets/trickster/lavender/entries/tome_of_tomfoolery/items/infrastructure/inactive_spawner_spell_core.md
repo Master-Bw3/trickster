@@ -7,8 +7,8 @@
 }
 ```
 
-Nether Wart shows potential for the lining of a [Spell Core](^trickster:items/infrastructure/spell_core). 
-Its transformative properties enable the conversion of energy necessary to power a spell from a spawner's essence.
+Nether Wart shows potential for the lining of an improved [Spell Core](^trickster:items/infrastructure/spell_core). 
+Its transformative properties enable the conversion of energy necessary to power a spell, moreso than gold and leather.
 
 
 A Shell may be constructed from the Wart, a Nether Quartz, and Iron to bind it tightly.
@@ -18,5 +18,4 @@ A Shell may be constructed from the Wart, a Nether Quartz, and Iron to bind it t
 <recipe;trickster:inactive_spawner_spell_core>
 
 However, it is not a functioning Core in itself. 
-By interacting with a spawner while holding this Shell, the spawner's essence may be absorbed. 
-Only then will it function when placed within a [Modular Spell Construct](^trickster:items/infrastructure/modular_spell_construct).
+To make full use of its potential, it will need some form of power source. Something with Soul.

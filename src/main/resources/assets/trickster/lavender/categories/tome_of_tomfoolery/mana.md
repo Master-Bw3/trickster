@@ -7,4 +7,4 @@
 }
 ```
 
-TODO
+Items that hold or interact directly with mana in some way or other.

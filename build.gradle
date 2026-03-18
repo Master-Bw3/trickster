@@ -171,7 +171,7 @@ yamlang {
 
 compileJava.dependsOn 'spotlessApply'
 spotless {
-    ratchetFrom 'origin/mistress'
+    ratchetFrom 'HEAD'
     encoding 'UTF-8'
 
     format 'misc', {
