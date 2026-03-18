@@ -77,7 +77,7 @@ Returns the number of slots in an inventory source, using the caster if no sourc
 
 <|trick@trickster:templates|trick-id=trickster:check_hat|>
 
-Returns the selected slot in the caster's [Hat](^trickster:items/top_hat).
+Returns the selected slot in the caster's [Hat](^trickster:items/writing_casting/top_hat).
 
 ;;;;;
 
