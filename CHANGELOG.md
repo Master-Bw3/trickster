@@ -10,6 +10,8 @@
   - They can be used in certain ploys to apply colors.
 - Added Infused Ceramic. (@BlueMoonJune)
   - This block can be crafted and dyed any arbitrary color using color fragments.
+- Added more options to some flecks that can be applied after creating them. (@BlueMoonJune)
+  - This includes support for rotating, scaling, and painting (via color fragments).
 - Added the Torment on a Chain. (@aurakle)
   - This necklace will persistently cast any spell inscribed onto it while worn by a player.
 - Added a left click action to wands. (@AshAxolotl)
