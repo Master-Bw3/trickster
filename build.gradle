@@ -2,7 +2,7 @@ plugins {
     id 'fabric-loom' version '1.14-SNAPSHOT'
     id 'maven-publish'
     id 'me.fallenbreath.yamlang' version '1.5.0'
-    id "me.modmuss50.mod-publish-plugin" version "0.4.4"
+    id "me.modmuss50.mod-publish-plugin" version "1.1.0"
     id "com.diffplug.spotless" version "7.0.2"
 }
 
@@ -294,11 +294,11 @@ publishMods {
         }
     }
 
-    if (providers.gradleProperty('enjaraiGithubToken').present) {
-        github {
-            repository = property('mod_github')
-            accessToken = providers.gradleProperty('enjaraiGithubToken').get()
-
+    if (providers.gradleProperty('enjaraiCodebergToken').present) {
+        forgejo {
+            accessToken = providers.gradleProperty('enjaraiCodebergToken').get()
+            host(new URI("https://codeberg.org"))
+            repository = property('mod_codeberg')
             commitish = property('git_branch')
             tagName = project.version
         }
