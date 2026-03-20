@@ -17,5 +17,9 @@
 - Added a left click action to wands. (@AshAxolotl)
   - The spell cast by a wand will receive a boolean argument to indicate if it was left or right clicked.
 - Added a light level option for conjured lights. (@AshAxolotl)
+- Added a few new tricks for: (@AshAxolotl)
+  - Revealing to actionbar explicitly.
+  - Getting entity equipment.
+  - And exact position raycasting.
 - Many misc tome improvements. (@AshAxolotl and @enjarai)
 - Many misc bugfixes and general improvements. (@Master-Bw3, @AshAxolotl, @BlueMoonJune and @enjarai)
